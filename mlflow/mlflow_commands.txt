@@ -1,0 +1,9 @@
+# MLflow way of Logging Parameters
+# Log parameters, which are arbitrary key-value pairs 
+mlflow.log_param("num_dimensions", 8) mlflow.log_param("regularization", 0.1)
+
+# Log metrics; each metric can also be updated throughout the run mlflow.log_metric("accuracy", 0.8) 
+mlflow.log_metric("r2", 0.4) 
+
+# Log artifacts (arbitrary output files)
+ mlflow.log_artifact("precision_recall.png")
