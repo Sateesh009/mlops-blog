@@ -1,0 +1,24 @@
+# This file lists out the commands used in the Medium Blog
+
+# Initialize DVC Set up in a folder.
+# This command is analogous to what GIT Init command does in GIT Version Control
+dvc init
+
+
+# Commit required DVC internal files to GIT Repo.
+git status
+git commit -m "Initialize DVC"
+
+# Configure remote data storage location for data files
+dvc remote add -d storage "Storage location path"
+dvc add .dvc/config
+git commit -m "Configure remote storage"
+
+# Analogous to git add command. 
+# Here, dvc add command ensures that the data file gets tracked using DVC.
+dvc add data/data.xml
+
+# git commit adds metafile about data(data.xml.dvc) to code versioning. 
+# dvc push, checks in the actual data(data.xml) to default remote data storage location that we set up in earlier step.
+git commit -m data/data.xml.dvc -m "Dataset Updates"
+dvc push
